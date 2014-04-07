@@ -16,12 +16,27 @@ def start_of_word(word,num=0)
 
 end
 
-def first_word
+def first_word(string)
+	string.split(" ")[0]
 
 end
 
 def titleize(string)
-	string.capitalize
+	# split the string into an array
+	array = string.split(" ")
+	small_words = ["over", "the"]
+	
+	# capitalize all of the words that are 4 or larger, except a couple words
+	capitalized_sentence = array.map do |word| 
+		if word.length <= 3 || small_words.include?(word) 
+			word
+		else
+			word.capitalize
+		end
+	end
+
+	capitalized_sentence[0] = capitalized_sentence[0].capitalize
+	capitalized_sentence.join(" ")
 end
 
 
